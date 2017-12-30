@@ -1,0 +1,15 @@
+C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\bin\Debug\PersonDataWizard.exe.config
+C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\bin\Debug\PersonDataWizard.exe
+C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\bin\Debug\PersonDataWizard.pdb
+C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\MainWindow.g.cs
+C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\App.g.cs
+C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\PersonDataWizard_MarkupCompile.cache
+C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\PersonDataWizard_MarkupCompile.lref
+C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\MainWindow.baml
+C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\PersonDataWizard.g.resources
+C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\PersonDataWizard.Properties.Resources.resources
+C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\PersonDataWizard.csproj.GenerateResource.Cache
+C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\PersonDataWizard.csproj.CoreCompileInputs.cache
+C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\PersonDataWizard.exe
+C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\PersonDataWizard.pdb
+C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\PersonDataWizard.csprojResolveAssemblyReference.cache
