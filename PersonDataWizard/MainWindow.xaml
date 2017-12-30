@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PersonDataWizard"
         mc:Ignorable="d"
-        Title="PersonDataWizard Application4"
+        Title="PGS Software | Person Data Wizard Application"
         MinWidth="600" MinHeight="450" MaxHeight="850" MaxWidth="1000" Width="600" Height="450" ResizeMode="CanResize">
+    
+    
     <DockPanel>
         <Image Source="/photo2.jpg"
                ToolTip="Niebo" DockPanel.Dock="Left"  />
@@ -23,7 +25,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Separator Grid.Row="2"/>
-            <Label Content="Section Title" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="0" VerticalAlignment="Top" Height="27" Width="107"/>
+            <TextBlock  Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="0" VerticalAlignment="Top" Height="27" Width="107">Section Title</TextBlock>
             <Label Content="Long Label text to description element..." Grid.Column="2" HorizontalAlignment="Left" Margin="10,42,0,0" Grid.Row="1" VerticalAlignment="Top" Height="23" Width="395"/>
 
         </Grid>

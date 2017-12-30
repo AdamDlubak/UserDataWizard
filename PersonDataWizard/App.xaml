@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:PersonDataWizard"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="FontSize" Value="14"/>
+        </Style>
     </Application.Resources>
 </Application>
