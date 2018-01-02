@@ -20,9 +20,7 @@ namespace PersonDataWizard.ViewModel
     public static event EventHandler<PropertyChangedEventArgs> StaticPropertyChanged;
     public static void RaiseStaticPropertyChanged(string propName)
     {
-      EventHandler<PropertyChangedEventArgs> handler = StaticPropertyChanged;
-      if (handler != null)
-        handler(null, new PropertyChangedEventArgs(propName));
+      StaticPropertyChanged?.Invoke(null, new PropertyChangedEventArgs(propName));
     }
 
   }

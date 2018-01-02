@@ -9,10 +9,7 @@ namespace PersonDataWizard.ViewModel
 
     private bool _isCorrect;
 
-    public Visibility IsCorrect
-    {
-      get { return _isCorrect ? Visibility.Collapsed : Visibility.Visible; }
-    }
+    public Visibility IsCorrect => _isCorrect ? Visibility.Collapsed : Visibility.Visible;
 
     public override string UserInfo
     {
@@ -20,29 +17,31 @@ namespace PersonDataWizard.ViewModel
       set
       {
         MainWindowViewModel.User.FirstName = value;
-        MainWindowViewModel.IsNextEnable = MainWindowViewModel.User.FirstName != String.Empty;
-        _isCorrect = IsCorrectValidate();
-        OnPropertyChanged("IsCorrect");
-
-        MainWindowViewModel.IsPreviousEnable = true;
-        MainWindowViewModel.IsNextEnable = _isCorrect;
-        OnPropertyChanged("UserInfo");
+        _isCorrect = CheckCorrection();
       }
     }
 
-    private bool IsCorrectValidate()
+    public override bool IsCorrectValidate()
     {
       if (MainWindowViewModel.User.FirstName == String.Empty)
       {
         ErrorDescription = "This field cannot be empty!";
         OnPropertyChanged("ErrorDescription");
+        OnPropertyChanged("IsCorrect");
         return false;
       }
-      if (MainWindowViewModel.User.FirstName.Length > 2 && MainWindowViewModel.User.FirstName.Length <= 50) return true;
+      if (MainWindowViewModel.User.FirstName.Length > 2 && MainWindowViewModel.User.FirstName.Length <= 50)
+      {
+        ErrorDescription = "";
+        OnPropertyChanged("ErrorDescription");
+        OnPropertyChanged("IsCorrect");
+        return true;
+      }
       ErrorDescription = MainWindowViewModel.User.FirstName.Length > 50
         ? "This field is too long! (max. 50 charakters)"
         : "This field is too short! (min. 3 charakters)";
       OnPropertyChanged("ErrorDescription");
+      OnPropertyChanged("IsCorrect");
       return false;
     }
   }

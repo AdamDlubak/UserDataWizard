@@ -9,7 +9,7 @@
         <TextBox Style="{StaticResource PageInput}" x:Name="LastNameTextBox" Text="{Binding UserInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <!--                 KeyUp="NumberTextBox_KeyUp"-->
         <!--                 Loaded="NumberTextBox_Loaded"-->
-        <Label Style="{StaticResource PageErrorLabel}" Content="*This field cannot be empty!" />
+        <Label Style="{StaticResource PageErrorLabel}" Content="{ Binding ErrorDescription }" Visibility="{ Binding IsCorrect }"/>
 
     </StackPanel>
 </UserControl>

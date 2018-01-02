@@ -18,7 +18,9 @@ namespace PersonDataWizard.View
       AddressTextBox.Focusable = true;
       Keyboard.Focus(AddressTextBox);
 
-      MainWindowViewModel.IsNextEnable = MainWindowViewModel.User.Address != null;
+      MainWindowViewModel.IsNextEnable = MainWindowViewModel.User.AddressStreet != null;
+      MainWindowViewModel.IsFinishPage = false;
+
     }
   }
 }

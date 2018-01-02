@@ -5,11 +5,15 @@
         <TextBlock Style="{StaticResource PageDescription}">
             Please enter your address. This field is required.
         </TextBlock>
-        <Label Style="{StaticResource PageInputLabel}" Content="Your Address:"/>
+        <Label Style="{StaticResource PageInputLabel}" Content="Address (street with number):"/>
         <TextBox Style="{StaticResource PageInput}" x:Name="AddressTextBox" Text="{Binding UserInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Label Style="{StaticResource PageInputLabel}" Content="Post Code and City:"/>
+        <TextBox Style="{StaticResource PageInput}" x:Name="AddressTextBoxPostCode" Text="{Binding UserPostCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Style="{StaticResource PageInput}" x:Name="AddressTextBoxCity" Text="{Binding UserInfoCity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Label Style="{StaticResource PageInputLabel}" Content="Country:"/>
+        <TextBox Style="{StaticResource PageInput}" x:Name="AddressTextBoxCountry" Text="{Binding UserInfoCountry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <!--                 KeyUp="NumberTextBox_KeyUp"-->
-        <!--                 Loaded="NumberTextBox_Loaded"-->
-        <Label Style="{StaticResource PageErrorLabel}" Content="*This field cannot be empty!" />
+        <Label Style="{StaticResource PageErrorLabel}" Content="{ Binding ErrorDescription }" Visibility="{ Binding IsCorrect }"/>
 
     </StackPanel>
 </UserControl>

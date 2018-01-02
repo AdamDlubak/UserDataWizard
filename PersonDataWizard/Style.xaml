@@ -53,9 +53,11 @@
     </Style>
     <Style x:Key="PageSummaryLabel" TargetType="Label">
         <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="HorizontalContentAlignment" Value="Right"/>
         <Setter Property="Padding" Value="0 0 0 5" />
     </Style>
     <Style x:Key="PageSummaryTextBlock" TargetType="TextBlock">
-        <Setter Property="Padding" Value="0 0 0 5" />
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="10 0 0 5" />
     </Style>
 </ResourceDictionary>
