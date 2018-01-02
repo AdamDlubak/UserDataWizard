@@ -10,10 +10,10 @@ namespace PersonDataWizard.Model
   {
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public string AddressStreet { get; set; }
-    public string AddressPostCode { get; set; }
-    public string AddressCity { get; set; }
-    public string AddressCountry { get; set; }
+    public string Street { get; set; }
+    public string PostCode { get; set; }
+    public string City { get; set; }
+    public string Country { get; set; }
     public string PhoneNumber { get; set; }
   }
 }

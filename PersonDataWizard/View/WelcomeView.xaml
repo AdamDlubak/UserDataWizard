@@ -2,10 +2,11 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <StackPanel Loaded="Page_Loaded">
-        <TextBlock Style="{StaticResource PageDescription}">
-            It's time for welcome screen.
+        <Label Style="{StaticResource PageInputLabel}" Content="We want to get some information about you..."/>
+
+        <TextBlock Style="{StaticResource PageDescription}" TextWrapping="Wrap">
+            Before the next step, we would like to ask You for some basic information about the user.
         </TextBlock>
-        <Label Style="{StaticResource PageInputLabel}" Content="We want get some information about you..."/>
 
     </StackPanel>
 </UserControl>

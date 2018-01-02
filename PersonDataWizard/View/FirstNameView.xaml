@@ -5,14 +5,11 @@
 
     <StackPanel Loaded="Page_Loaded">
         <TextBlock  Style="{StaticResource PageDescription}">
-            Please enter your name. This field is required.
+            Please enter your first name. This field is required.
             </TextBlock>
-        <Label Style="{StaticResource PageInputLabel}" Content="Your Name:"/>
+        <Label Style="{StaticResource PageInputLabel}" Content="First Name:"/>
         <TextBox Style="{StaticResource PageInput}" x:Name="FirstNameTextBox" Text="{Binding UserInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-<!--                 KeyUp="NumberTextBox_KeyUp"-->
-<!--                 Loaded="NumberTextBox_Loaded"-->
-        <Label Style="{StaticResource PageErrorLabel}" 
-            Content="{ Binding ErrorDescription }" Visibility="{ Binding IsCorrect }"/>
+        <TextBlock Style="{StaticResource PageErrorTextBlock}" Text="{ Binding ErrorDescription }" Visibility="{ Binding IsCorrect }"/>
 
     </StackPanel>
 </UserControl>

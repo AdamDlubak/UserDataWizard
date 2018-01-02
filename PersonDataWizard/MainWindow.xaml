@@ -34,7 +34,7 @@
         <Image Source="/_img/bg-photo.jpg" DockPanel.Dock="Left" />
 
         <StackPanel DockPanel.Dock="Top">
-            <Label Style="{StaticResource WindowTitle}" Content="Hello in our application!" />
+            <Label Style="{StaticResource WindowTitle}" Content="Welcome in our application!" />
             <TextBlock Style="{StaticResource WindowDescription}">This tool is used to collect basic information about the user.</TextBlock>
             <Separator />
         </StackPanel>
@@ -54,7 +54,7 @@
             <Separator Grid.ColumnSpan="4" />
             <Button IsEnabled="{Binding IsCancelEnable}" Content="Cancel" Grid.Row="1" Grid.Column="0" Command="{Binding Path=CancelCommand}"/>
             <Button IsEnabled="{Binding IsPreviousEnable}" Content="Previous" Grid.Row="1" Grid.Column="2" Command="{Binding Path=PreviousCommand}"/>
-            <Button IsEnabled="{Binding IsNextEnable}" Content="{ Binding NextButtonContent }" Grid.Row="1" Grid.Column="3" Command="{Binding Path=NextCommand}" />
+            <Button IsEnabled="{Binding IsNextEnable}" IsDefault="true" Content="{ Binding NextButtonContent }" Grid.Row="1" Grid.Column="3" Command="{Binding Path=NextCommand}" />
         </Grid>
 
         <StackPanel Style="{StaticResource Pages}">

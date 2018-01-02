@@ -7,9 +7,7 @@
         </TextBlock>
         <Label Style="{StaticResource PageInputLabel}" Content="Your Phone Number:"/>
         <TextBox Style="{StaticResource PageInput}" x:Name="PhoneNumberTextbox" Text="{Binding UserInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <!--                 KeyUp="NumberTextBox_KeyUp"-->
-        <!--                 Loaded="NumberTextBox_Loaded"-->
-        <Label Style="{StaticResource PageErrorLabel}" Content="{ Binding ErrorDescription }" Visibility="{ Binding IsCorrect }"/>
+        <TextBlock Style="{StaticResource PageErrorTextBlock}" Text="{ Binding ErrorDescription }" Visibility="{ Binding IsCorrect }"/>
 
     </StackPanel>
 </UserControl>

@@ -3,13 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <StackPanel Loaded="Page_Loaded">
         <TextBlock Style="{StaticResource PageDescription}">
-            Please enter your surname. This field is required.
+            Please enter your last name. This field is required.
         </TextBlock>
-        <Label Style="{StaticResource PageInputLabel}" Content="Your Surname:"/>
+        <Label Style="{StaticResource PageInputLabel}" Content="Last Name:"/>
         <TextBox Style="{StaticResource PageInput}" x:Name="LastNameTextBox" Text="{Binding UserInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <!--                 KeyUp="NumberTextBox_KeyUp"-->
-        <!--                 Loaded="NumberTextBox_Loaded"-->
-        <Label Style="{StaticResource PageErrorLabel}" Content="{ Binding ErrorDescription }" Visibility="{ Binding IsCorrect }"/>
+        <TextBlock Style="{StaticResource PageErrorTextBlock}" Text="{ Binding ErrorDescription }" Visibility="{ Binding IsCorrect }"/>
 
     </StackPanel>
 </UserControl>

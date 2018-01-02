@@ -27,3 +27,4 @@ C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\PersonDataWiza
 C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\PersonDataWizard.csproj.CoreCompileInputs.cache
 C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\PersonDataWizard.exe
 C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\PersonDataWizard.pdb
+C:\Users\Adam\Desktop\PersonDataWizard\PersonDataWizard\obj\Debug\PersonDataWizard.csprojResolveAssemblyReference.cache
