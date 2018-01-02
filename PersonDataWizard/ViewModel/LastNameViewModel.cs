@@ -2,14 +2,14 @@
 
 namespace PersonDataWizard.ViewModel
 {
-  class PhoneNumberViewModel : PageViewModel
+  class LastNameViewModel : PageViewModel
   {
     public override string UserInfo
     {
-      get => MainWindowViewModel.User.PhoneNumber;
+      get => MainWindowViewModel.User.LastName;
       set
       {
-        MainWindowViewModel.User.PhoneNumber = value;
+        MainWindowViewModel.User.LastName = value;
         MainWindowViewModel.IsNextEnable = MainWindowViewModel.User.FirstName != String.Empty;
         OnPropertyChanged("UserInfo");
       }

@@ -64,17 +64,17 @@
     <Compile Include="ViewModel\AddressViewModel.cs" />
     <Compile Include="ViewModel\PageViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
-    <Compile Include="ViewModel\NameViewModel.cs" />
+    <Compile Include="ViewModel\FirstNameViewModel.cs" />
     <Compile Include="ViewModel\PhoneNumberViewModel.cs" />
     <Compile Include="ViewModel\SummaryViewModel.cs" />
-    <Compile Include="ViewModel\SurnameViewModel.cs" />
+    <Compile Include="ViewModel\LastNameViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\WelcomeViewModel.cs" />
     <Compile Include="View\AddressView.xaml.cs">
       <DependentUpon>AddressView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\NameView.xaml.cs">
-      <DependentUpon>NameView.xaml</DependentUpon>
+    <Compile Include="View\FirstNameView.xaml.cs">
+      <DependentUpon>FirstNameView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PhoneNumberView.xaml.cs">
       <DependentUpon>PhoneNumberView.xaml</DependentUpon>
@@ -82,8 +82,8 @@
     <Compile Include="View\SummaryView.xaml.cs">
       <DependentUpon>SummaryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SurnameView.xaml.cs">
-      <DependentUpon>SurnameView.xaml</DependentUpon>
+    <Compile Include="View\LastNameView.xaml.cs">
+      <DependentUpon>LastNameView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\WelcomeView.xaml.cs">
       <DependentUpon>WelcomeView.xaml</DependentUpon>
@@ -108,7 +108,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\NameView.xaml">
+    <Page Include="View\FirstNameView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,7 +120,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SurnameView.xaml">
+    <Page Include="View\LastNameView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

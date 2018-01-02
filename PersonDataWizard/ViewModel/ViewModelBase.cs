@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace PersonDataWizard.ViewModel
 {
@@ -15,5 +16,14 @@ namespace PersonDataWizard.ViewModel
     {
       PropertyChanged?.Invoke(this, e);
     }
+
+    public static event EventHandler<PropertyChangedEventArgs> StaticPropertyChanged;
+    public static void RaiseStaticPropertyChanged(string propName)
+    {
+      EventHandler<PropertyChangedEventArgs> handler = StaticPropertyChanged;
+      if (handler != null)
+        handler(null, new PropertyChangedEventArgs(propName));
+    }
+
   }
 }

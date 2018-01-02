@@ -1,4 +1,4 @@
-﻿using System;
+﻿  using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -12,6 +12,7 @@ namespace PersonDataWizard
 
   public class RelayCommand : ICommand
   {
+  
     /// <summary>
     /// Action to be performed when this command is executed
     /// </summary>

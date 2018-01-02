@@ -1,10 +1,18 @@
-﻿namespace PersonDataWizard.ViewModel
+﻿using System;
+
+namespace PersonDataWizard.ViewModel
 {
   class AddressViewModel : PageViewModel
   {
-    public override string Name
+    public override string UserInfo
     {
-      get { return "Name"; }
+      get => MainWindowViewModel.User.Address;
+      set
+      {
+        MainWindowViewModel.User.Address = value;
+        MainWindowViewModel.IsNextEnable = MainWindowViewModel.User.FirstName != String.Empty;
+        OnPropertyChanged("UserInfo");
+      }
     }
   }
 

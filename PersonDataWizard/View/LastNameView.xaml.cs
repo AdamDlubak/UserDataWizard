@@ -6,19 +6,19 @@ using PersonDataWizard.ViewModel;
 
 namespace PersonDataWizard.View
 {
-  public partial class AddressView : UserControl
+  public partial class LastNameView : UserControl
   {
-    public AddressView()
+    public LastNameView()
     {
       InitializeComponent();
     }
     private void Page_Loaded(object sender, RoutedEventArgs e)
     {
-      AddressTextBox.Focus();
-      AddressTextBox.Focusable = true;
-      Keyboard.Focus(AddressTextBox);
+      LastNameTextBox.Focus();
+      LastNameTextBox.Focusable = true;
+      Keyboard.Focus(LastNameTextBox);
 
-      MainWindowViewModel.IsNextEnable = MainWindowViewModel.User.Address != null;
+      MainWindowViewModel.IsNextEnable = MainWindowViewModel.User.LastName != null;
     }
   }
 }

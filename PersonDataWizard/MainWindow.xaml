@@ -12,11 +12,11 @@
         <DataTemplate DataType="{x:Type ViewModel:WelcomeViewModel}">
             <View:WelcomeView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type ViewModel:NameViewModel}">
-            <View:NameView/>
+        <DataTemplate DataType="{x:Type ViewModel:FirstNameViewModel}">
+            <View:FirstNameView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type ViewModel:SurnameViewModel}">
-            <View:SurnameView/>
+        <DataTemplate DataType="{x:Type ViewModel:LastNameViewModel}">
+            <View:LastNameView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type ViewModel:AddressViewModel}">
             <View:AddressView/>
@@ -27,6 +27,7 @@
         <DataTemplate DataType="{x:Type ViewModel:SummaryViewModel}">
             <View:SummaryView/>
         </DataTemplate>
+        
     </Window.Resources>
 
     <DockPanel>
@@ -51,9 +52,9 @@
             </Grid.ColumnDefinitions>
 
             <Separator Grid.ColumnSpan="4" />
-            <Button Content="Cancel" Grid.Row="1" Grid.Column="0" IsEnabled="True" />
-            <Button Content="Previous" Grid.Row="1" Grid.Column="2" IsEnabled="True" Command="{Binding Path=LoadPreviousPageCommand}"/>
-            <Button Content="Next" Grid.Row="1" Grid.Column="3" IsEnabled="True" Command="{Binding Path=LoadNextPageCommand}" />
+            <Button IsEnabled="{Binding IsCancelEnable}" Content="Cancel" Grid.Row="1" Grid.Column="0" Command="{Binding Path=CancelCommand}"/>
+            <Button IsEnabled="{Binding IsPreviousEnable}" Content="Previous" Grid.Row="1" Grid.Column="2" Command="{Binding Path=PreviousCommand}"/>
+            <Button IsEnabled="{Binding IsNextEnable}" Content="{ Binding NextButtonContent }" Grid.Row="1" Grid.Column="3" Command="{Binding Path=NextCommand}" />
         </Grid>
 
         <StackPanel Style="{StaticResource Pages}">

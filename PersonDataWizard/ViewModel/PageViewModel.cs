@@ -2,6 +2,6 @@
 {
   public abstract class PageViewModel : ViewModelBase
   {
-    public abstract string Name { get; }
+    public abstract string UserInfo { get; set; }
   }
 }

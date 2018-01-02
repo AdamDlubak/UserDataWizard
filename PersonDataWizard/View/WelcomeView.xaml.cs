@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
+using PersonDataWizard.ViewModel;
 
 namespace PersonDataWizard.View
 {
@@ -11,6 +13,12 @@ namespace PersonDataWizard.View
         {
             InitializeComponent();
         }
+    private void Page_Loaded(object sender, RoutedEventArgs e)
+    {
+      MainWindowViewModel.IsPreviousEnable = false;
+      MainWindowViewModel.IsNextEnable = true;
 
+
+    }
   }
 }

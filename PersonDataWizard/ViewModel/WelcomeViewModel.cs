@@ -2,9 +2,6 @@
 {
     class WelcomeViewModel : PageViewModel
   {
-    public override string Name
-    {
-      get { return "Welcome"; }
-    }
+    public override string UserInfo { get; set; }
   }
 }
