@@ -1,20 +1,64 @@
-﻿using UserDataWizard.ViewModels;
+﻿using System.Text.RegularExpressions;
+using System.Windows;
+using static UserDataWizard.ViewModels.MainWindowViewModel;
 
 namespace UserDataWizard.Helpers
 {
   public abstract class PageViewModel : ViewModelBase
   {
     public abstract string UserInfo { get; set; }
-    public abstract bool IsCorrectValidate();
+    public string ErrorDescription { get; set; }
 
-    public virtual bool CheckCorrection()
+    public abstract bool ValidateField();
+    private bool _isCorrect;
+
+
+    public Visibility IsCorrect => _isCorrect ? Visibility.Collapsed : Visibility.Visible;
+
+    public virtual bool CheckCorrectionAndUpdate(string propertyChange = "UserInfo")
     {
-      bool isCorrect = IsCorrectValidate();
+      _isCorrect = ValidateField();
 
-      MainWindowViewModel.IsPreviousEnable = true;
-      MainWindowViewModel.IsNextEnable = isCorrect;
-      OnPropertyChanged("UserInfo");
-      return isCorrect;
+      IsNextEnable = _isCorrect;
+
+      OnPropertyChanged(propertyChange);
+      return _isCorrect;
+    }
+
+    public virtual void OnChangeError(string description)
+    {
+      ErrorDescription = description;
+      OnPropertyChanged("ErrorDescription");
+      OnPropertyChanged("ShowError");
+    }
+
+    public virtual bool LengthValidation(string field, int minCharacters, int maxCharacters)
+    {
+      if (field == string.Empty)
+      {
+        OnChangeError("*This field cannot be empty!");
+        return false;
+      }
+      if (field.Length > minCharacters && field.Length <= maxCharacters)
+      {
+        OnChangeError("");
+        return true;
+      }
+      OnChangeError(field.Length > maxCharacters
+        ? "*This field is too long! (max. " + maxCharacters + " charakters)"
+        : "*This field is too short! (min. " + minCharacters + 1 + " charakters)");
+      return false;
+    }
+
+    public virtual bool RegexValidation(string field, Regex regex)
+    {
+      if (regex.IsMatch(field))
+      {
+        OnChangeError("");
+        return true;
+      }
+      OnChangeError("*Invalid Phone Number! \n Only digits and '+' character are available.");
+      return false;
     }
   }
 }

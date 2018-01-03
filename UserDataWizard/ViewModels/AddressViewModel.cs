@@ -1,158 +1,80 @@
-﻿using System;
-using System.Text.RegularExpressions;
-using System.Windows;
+﻿using System.Text.RegularExpressions;
 using UserDataWizard.Helpers;
+using static UserDataWizard.ViewModels.MainWindowViewModel;
 
 namespace UserDataWizard.ViewModels
 {
   class AddressViewModel : PageViewModel
   {
-    public String ErrorDescription { get; set; }
     private bool _countryCorrection;
     private bool _postCodeCorrection;
     private bool _cityCorrection;
     private bool _addressCorrection;
     public static bool _isCorrect;
 
-    public Visibility IsCorrect => _isCorrect ? Visibility.Collapsed : Visibility.Visible;
-
 
     public override string UserInfo
     {
-      get => MainWindowViewModel.User.Street;
+      get => User.Street;
       set
       {
-        MainWindowViewModel.User.Street = value;
-        _addressCorrection = IsCorrectValidate();
-        if (_countryCorrection && _postCodeCorrection && _cityCorrection && _addressCorrection)
-        {
-          _isCorrect = true;
-          MainWindowViewModel.IsPreviousEnable = true;
-        }
-        else _isCorrect = false;
-
-        MainWindowViewModel.IsNextEnable = _isCorrect;
-        OnPropertyChanged("UserInfoCity");
+        User.Street = value;
+        CheckCorrectionAndUpdate(1, "UserInfoCity");
       }
     }
 
     public string UserInfoPostCode
     {
-      get => MainWindowViewModel.User.PostCode;
+      get => User.PostCode;
       set
       {
-        MainWindowViewModel.User.PostCode = value;
-        _postCodeCorrection = CheckPostCodeCorrection();
-        if (_countryCorrection && _postCodeCorrection && _cityCorrection && _addressCorrection)
-        {
-          _isCorrect = true;
-          MainWindowViewModel.IsPreviousEnable = true;
-        }
-        else _isCorrect = false;
-
-        MainWindowViewModel.IsNextEnable = _isCorrect;
-        OnPropertyChanged("UserInfoPostCode");
+        User.PostCode = value;
+        CheckCorrectionAndUpdate(2, "UserInfoPostCode");
       }
     }
 
     public string UserInfoCity
     {
-      get => MainWindowViewModel.User.City;
+      get => User.City;
       set
       {
-        MainWindowViewModel.User.City = value;
-        _cityCorrection = CheckCityCorrection();
-        if (_countryCorrection && _postCodeCorrection && _cityCorrection && _addressCorrection)
-        {
-          _isCorrect = true;
-          MainWindowViewModel.IsPreviousEnable = true;
-        }
-        else _isCorrect = false;
-
-        MainWindowViewModel.IsNextEnable = _isCorrect;
-        OnPropertyChanged("UserInfoCity");
+        User.City = value;
+        CheckCorrectionAndUpdate(3, "UserInfoCity");
       }
     }
 
     public string UserInfoCountry
     {
-      get => MainWindowViewModel.User.Country;
+      get => User.Country;
       set
       {
-        MainWindowViewModel.User.Country = value;
-        _countryCorrection = CheckCountryCorrection();
-        if (_countryCorrection && _postCodeCorrection && _cityCorrection && _addressCorrection)
-        {
-          _isCorrect = true;
-          MainWindowViewModel.IsPreviousEnable = true;
-        }
-        else _isCorrect = false;
-
-        MainWindowViewModel.IsNextEnable = _isCorrect;
-        OnPropertyChanged("UserInfoCountry");
+        User.Country = value;
+        CheckCorrectionAndUpdate(4, "UserInfoCountry");
       }
     }
 
 
     private bool CheckCityCorrection()
     {
-      if (MainWindowViewModel.User.City == null)
-      {
-        ErrorDescription = "*City field cannot be empty!";
-        OnPropertyChanged("ErrorDescription");
-        OnPropertyChanged("IsCorrect");
-        return false;
-      }
-      if (MainWindowViewModel.User.City.Length > 2 && MainWindowViewModel.User.City.Length <= 100)
-      {
-        ErrorDescription = "";
-        OnPropertyChanged("ErrorDescription");
-        OnPropertyChanged("IsCorrect");
-        return true;
-      }
-      ErrorDescription = MainWindowViewModel.User.City.Length > 100
-        ? "City field is too long! (max. 100 charakters)"
-        : "City field is too short! (min. 3 charakters)";
-      OnPropertyChanged("ErrorDescription");
-      OnPropertyChanged("IsCorrect");
-      return false;
+      return LengthValidation(User.City, 2, 100);
     }
 
     private bool CheckCountryCorrection()
     {
-      if (MainWindowViewModel.User.Country == null)
-      {
-        ErrorDescription = "*Country field cannot be empty!";
-        OnPropertyChanged("ErrorDescription");
-        OnPropertyChanged("IsCorrect");
-        return false;
-      }
-      if (MainWindowViewModel.User.Country.Length > 2 && MainWindowViewModel.User.Country.Length <= 100)
-      {
-        ErrorDescription = "";
-        OnPropertyChanged("ErrorDescription");
-        OnPropertyChanged("IsCorrect");
-        return true;
-      }
-      ErrorDescription = MainWindowViewModel.User.Country.Length > 100
-        ? "Country field is too long! (max. 100 charakters)"
-        : "Country field is too short! (min. 3 charakters)";
-      OnPropertyChanged("ErrorDescription");
-      OnPropertyChanged("IsCorrect");
-      return false;
+      return LengthValidation(User.Country, 2, 100);
     }
 
     private bool CheckPostCodeCorrection()
     {
       Regex phoneNumberPattern = new Regex(@"^[0-9]{2}-[0-9]{3}$");
-      if (MainWindowViewModel.User.PostCode == null)
+      if (User.PostCode == null)
       {
         ErrorDescription = "*Post Code field cannot be empty!";
         OnPropertyChanged("ErrorDescription");
         OnPropertyChanged("IsCorrect");
         return false;
       }
-      if (phoneNumberPattern.IsMatch(MainWindowViewModel.User.PostCode))
+      if (phoneNumberPattern.IsMatch(User.PostCode))
       {
         ErrorDescription = "";
         OnPropertyChanged("ErrorDescription");
@@ -165,17 +87,17 @@ namespace UserDataWizard.ViewModels
       return false;
     }
 
-    public override bool IsCorrectValidate()
+    private bool CheckAddressStreetCorrection()
     {
       Regex AddressPattern = new Regex(@"^[\p{L}]{2,} [0-9]{1,}\s?(\/\s?[0-9]{1,})?$");
-      if (MainWindowViewModel.User.Street == null)
+      if (User.Street == null)
       {
         ErrorDescription = "*Address Street field cannot be empty!";
         OnPropertyChanged("ErrorDescription");
         OnPropertyChanged("IsCorrect");
         return false;
       }
-      if (AddressPattern.IsMatch(MainWindowViewModel.User.Street))
+      if (AddressPattern.IsMatch(User.Street))
       {
         ErrorDescription = "";
         OnPropertyChanged("ErrorDescription");
@@ -186,6 +108,31 @@ namespace UserDataWizard.ViewModels
       OnPropertyChanged("ErrorDescription");
       OnPropertyChanged("IsCorrect");
       return false;
+    }
+
+
+    public override bool ValidateField(int fieldType = 0)
+    {
+      switch (fieldType)
+      {
+        case 1:
+          _addressCorrection = CheckAddressStreetCorrection();
+          break;
+        case 2:
+          _postCodeCorrection = CheckPostCodeCorrection();
+          break;
+        case 3:
+          _cityCorrection = CheckCityCorrection();
+          break;
+        case 4:
+          _countryCorrection = CheckCountryCorrection();
+          break;
+        default:
+          // Throw Exception
+          break;
+      }
+
+      return _countryCorrection && _postCodeCorrection && _cityCorrection && _addressCorrection;
     }
   }
 }

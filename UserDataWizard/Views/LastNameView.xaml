@@ -8,7 +8,7 @@
         </TextBlock>
         <Label Style="{StaticResource PageInputLabel}" Content="Last Name:"/>
         <TextBox Style="{StaticResource PageInput}" x:Name="LastName" Text="{Binding UserInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <TextBlock Style="{StaticResource PageErrorTextBlock}" Text="{ Binding ErrorDescription }" Visibility="{ Binding IsCorrect }"/>
+        <TextBlock Style="{StaticResource PageErrorTextBlock}" Text="{ Binding ErrorDescription }" Visibility="{ Binding ShowError }"/>
     </StackPanel>
     
 </UserControl>

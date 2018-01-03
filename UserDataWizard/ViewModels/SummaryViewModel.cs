@@ -12,7 +12,7 @@ namespace UserDataWizard.ViewModels
     public string AddressCountry => MainWindowViewModel.User.Country;
     public string PhoneNumber => MainWindowViewModel.User.PhoneNumber;
     public override string UserInfo { get; set; }
-    public override bool IsCorrectValidate()
+    public override bool ValidateField()
     {
       throw new System.NotImplementedException();
     }
