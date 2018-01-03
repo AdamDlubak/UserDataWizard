@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F26711D6-5E14-4A05-BBE4-1C14D9B4C279}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PersonDataWizard</RootNamespace>
-    <AssemblyName>PersonDataWizard</AssemblyName>
+    <RootNamespace>UserDataWizard</RootNamespace>
+    <AssemblyName>UserDataWizard</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -61,34 +61,34 @@
     </ApplicationDefinition>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
-    <Compile Include="ViewModel\AddressViewModel.cs" />
+    <Compile Include="ViewModels\AddressViewModel.cs" />
     <Compile Include="Helpers\PageViewModel.cs" />
-    <Compile Include="ViewModel\MainWindowViewModel.cs" />
-    <Compile Include="ViewModel\FirstNameViewModel.cs" />
-    <Compile Include="ViewModel\PhoneNumberViewModel.cs" />
-    <Compile Include="ViewModel\SummaryViewModel.cs" />
-    <Compile Include="ViewModel\LastNameViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\FirstNameViewModel.cs" />
+    <Compile Include="ViewModels\PhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\SummaryViewModel.cs" />
+    <Compile Include="ViewModels\LastNameViewModel.cs" />
     <Compile Include="Helpers\ViewModelBase.cs" />
-    <Compile Include="ViewModel\WelcomeViewModel.cs" />
-    <Compile Include="View\AddressView.xaml.cs">
+    <Compile Include="ViewModels\WelcomeViewModel.cs" />
+    <Compile Include="Views\AddressView.xaml.cs">
       <DependentUpon>AddressView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\FirstNameView.xaml.cs">
+    <Compile Include="Views\FirstNameView.xaml.cs">
       <DependentUpon>FirstNameView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PhoneNumberView.xaml.cs">
+    <Compile Include="Views\PhoneNumberView.xaml.cs">
       <DependentUpon>PhoneNumberView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SummaryView.xaml.cs">
+    <Compile Include="Views\SummaryView.xaml.cs">
       <DependentUpon>SummaryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LastNameView.xaml.cs">
+    <Compile Include="Views\LastNameView.xaml.cs">
       <DependentUpon>LastNameView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\WelcomeView.xaml.cs">
+    <Compile Include="Views\WelcomeView.xaml.cs">
       <DependentUpon>WelcomeView.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\MainWindow.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -96,7 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -104,33 +104,33 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddressView.xaml">
+    <Page Include="Views\AddressView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\FirstNameView.xaml">
+    <Page Include="Views\FirstNameView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\PhoneNumberView.xaml">
+    <Page Include="Views\PhoneNumberView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SummaryView.xaml">
+    <Page Include="Views\SummaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LastNameView.xaml">
+    <Page Include="Views\LastNameView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\WelcomeView.xaml">
+    <Page Include="Views\WelcomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\User.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

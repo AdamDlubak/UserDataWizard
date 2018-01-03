@@ -1,6 +1,6 @@
 ﻿using PersonDataWizard.Helpers;
 
-namespace PersonDataWizard.ViewModel
+namespace PersonDataWizard.ViewModels
 {
   class SummaryViewModel : PageViewModel
   {

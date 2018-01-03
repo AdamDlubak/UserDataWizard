@@ -1,8 +1,8 @@
-﻿<Window x:Class="PersonDataWizard.View.MainWindow"
+﻿<Window x:Class="PersonDataWizard.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:ViewModel="clr-namespace:PersonDataWizard.ViewModel"
-        xmlns:View="clr-namespace:PersonDataWizard.View"
+        xmlns:views="clr-namespace:PersonDataWizard.Views"
+        xmlns:ViewModel="clr-namespace:PersonDataWizard.ViewModels"
         Title="PGS Software | User Data Wizard Application"
         MinWidth="600" MinHeight="450" MaxHeight="850" MaxWidth="1000" Width="600" Height="450" ResizeMode="CanResize">
 
@@ -10,22 +10,22 @@
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type ViewModel:WelcomeViewModel}">
-            <View:WelcomeView/>
+            <views:WelcomeView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type ViewModel:FirstNameViewModel}">
-            <View:FirstNameView/>
+            <views:FirstNameView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type ViewModel:LastNameViewModel}">
-            <View:LastNameView/>
+            <views:LastNameView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type ViewModel:AddressViewModel}">
-            <View:AddressView/>
+            <views:AddressView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type ViewModel:PhoneNumberViewModel}">
-            <View:PhoneNumberView/>
+            <views:PhoneNumberView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type ViewModel:SummaryViewModel}">
-            <View:SummaryView/>
+            <views:SummaryView/>
         </DataTemplate>
         
     </Window.Resources>

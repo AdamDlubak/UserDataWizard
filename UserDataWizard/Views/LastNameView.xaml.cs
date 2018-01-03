@@ -1,10 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using PersonDataWizard.ViewModel;
+using PersonDataWizard.ViewModels;
 
-
-namespace PersonDataWizard.View
+namespace PersonDataWizard.Views
 {
   public partial class LastNameView : UserControl
   {

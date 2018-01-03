@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using PersonDataWizard.ViewModel;
+using PersonDataWizard.ViewModels;
 
-namespace PersonDataWizard.View
+namespace PersonDataWizard.Views
 {
     /// <summary>
     /// Interaction logic for WelcomePage.xaml

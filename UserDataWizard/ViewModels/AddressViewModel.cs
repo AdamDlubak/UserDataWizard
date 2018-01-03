@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using PersonDataWizard.Helpers;
 
-namespace PersonDataWizard.ViewModel
+namespace PersonDataWizard.ViewModels
 {
   class AddressViewModel : PageViewModel
   {

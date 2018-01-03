@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using PersonDataWizard.Helpers;
-using PersonDataWizard.Model;
+using PersonDataWizard.Models;
 
-namespace PersonDataWizard.ViewModel
+namespace PersonDataWizard.ViewModels
 {
   public class MainWindowViewModel : ViewModelBase
   {
