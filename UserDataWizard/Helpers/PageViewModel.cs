@@ -9,15 +9,15 @@ namespace UserDataWizard.Helpers
     public abstract string UserInfo { get; set; }
     public string ErrorDescription { get; set; }
 
-    public abstract bool ValidateField();
+    public abstract bool ValidateField(int fieldType = 0);
     private bool _isCorrect;
 
 
     public Visibility IsCorrect => _isCorrect ? Visibility.Collapsed : Visibility.Visible;
 
-    public virtual bool CheckCorrectionAndUpdate(string propertyChange = "UserInfo")
+    public virtual bool CheckCorrectionAndUpdate(int fieldType = 0, string propertyChange = "UserInfo")
     {
-      _isCorrect = ValidateField();
+      _isCorrect = ValidateField(fieldType);
 
       IsNextEnable = _isCorrect;
 
@@ -50,14 +50,14 @@ namespace UserDataWizard.Helpers
       return false;
     }
 
-    public virtual bool RegexValidation(string field, Regex regex)
+    public virtual bool RegexValidation(string field, Regex regex, string errorDescription)
     {
       if (regex.IsMatch(field))
       {
         OnChangeError("");
         return true;
       }
-      OnChangeError("*Invalid Phone Number! \n Only digits and '+' character are available.");
+      OnChangeError(errorDescription);
       return false;
     }
   }

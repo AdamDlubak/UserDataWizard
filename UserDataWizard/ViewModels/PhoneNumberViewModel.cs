@@ -19,7 +19,10 @@ namespace UserDataWizard.ViewModels
     public override bool ValidateField(int fieldType = 0)
     {
       var phoneNumberPattern = new Regex(@"^(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)?");
-      return RegexValidation(User.PhoneNumber, phoneNumberPattern);
+      const string errorEmptyDescription = "*This field cannot be empty";
+      const string errorDescription = "*Invalid Phone Number! \n Only digits and '+' character are available.";
+
+      return RegexValidation(User.PhoneNumber, phoneNumberPattern, errorEmptyDescription, errorDescription);
     }
   }
 }

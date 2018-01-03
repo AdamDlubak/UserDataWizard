@@ -10,7 +10,6 @@ namespace UserDataWizard.ViewModels
     private bool _postCodeCorrection;
     private bool _cityCorrection;
     private bool _addressCorrection;
-    public static bool _isCorrect;
 
 
     public override string UserInfo
@@ -66,48 +65,20 @@ namespace UserDataWizard.ViewModels
 
     private bool CheckPostCodeCorrection()
     {
-      Regex phoneNumberPattern = new Regex(@"^[0-9]{2}-[0-9]{3}$");
-      if (User.PostCode == null)
-      {
-        ErrorDescription = "*Post Code field cannot be empty!";
-        OnPropertyChanged("ErrorDescription");
-        OnPropertyChanged("IsCorrect");
-        return false;
-      }
-      if (phoneNumberPattern.IsMatch(User.PostCode))
-      {
-        ErrorDescription = "";
-        OnPropertyChanged("ErrorDescription");
-        OnPropertyChanged("IsCorrect");
-        return true;
-      }
-      ErrorDescription = "*Invalid Post Code field! \n(Correct example: 98-330)";
-      OnPropertyChanged("ErrorDescription");
-      OnPropertyChanged("IsCorrect");
-      return false;
+      var postCodePattern = new Regex(@"^[0-9]{2}-[0-9]{3}$");
+      const string errorEmptyDescription = "*Post Code field cannot be empty!";
+      const string errorDescription = "*Invalid Post Code field! \n(Correct example: 98-330)";
+
+      return RegexValidation(User.PostCode, postCodePattern, errorEmptyDescription, errorDescription);
     }
 
     private bool CheckAddressStreetCorrection()
     {
-      Regex AddressPattern = new Regex(@"^[\p{L}]{2,} [0-9]{1,}\s?(\/\s?[0-9]{1,})?$");
-      if (User.Street == null)
-      {
-        ErrorDescription = "*Address Street field cannot be empty!";
-        OnPropertyChanged("ErrorDescription");
-        OnPropertyChanged("IsCorrect");
-        return false;
-      }
-      if (AddressPattern.IsMatch(User.Street))
-      {
-        ErrorDescription = "";
-        OnPropertyChanged("ErrorDescription");
-        OnPropertyChanged("IsCorrect");
-        return true;
-      }
-      ErrorDescription = "*Invalid Street Address field! \n(Correct example: Wschodnia 1/12)";
-      OnPropertyChanged("ErrorDescription");
-      OnPropertyChanged("IsCorrect");
-      return false;
+      var addressPattern = new Regex(@"^[\p{L}]{2,} [0-9]{1,}\s?(\/\s?[0-9]{1,})?$");
+      const string errorEmptyDescription = "*Address Street field cannot be empty!";
+      const string errorDescription = "*Invalid Street Address field! \n(Correct example: Wschodnia 1/12)";
+
+      return RegexValidation(User.Street, addressPattern, errorEmptyDescription, errorDescription);
     }
 
 
