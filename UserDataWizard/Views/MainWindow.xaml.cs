@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using PersonDataWizard.ViewModels;
+using UserDataWizard.ViewModels;
 
-namespace PersonDataWizard.Views
+namespace UserDataWizard.Views
 {
   /// <summary>
   /// Interaction logic for MainWindow.xaml

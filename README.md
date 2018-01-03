@@ -33,9 +33,8 @@ Struktura folderów projektu przedstawia się następująco:
 
 - **Views** -  pliki widoków aplikacji w postaci `.xaml` opisujących strutkurę *okna* i *stron*
 
-- **ViewModels** - pliki logiki biznesowej aplikacji w postaci plików `.cs` (`C#`) - w relacji 1:1 do każdego widoku z folderu *Views*.
+- **ViewModels** - pliki logiki biznesowej aplikacji w postaci plików `.cs` (`C#`) - w relacji 1:1 do każdego widoku z folderu *Views*.​
 
-  ​
 
 ## Walidacja danych
 

@@ -1,4 +1,4 @@
-﻿using PersonDataWizard.Helpers;
+﻿using UserDataWizard.Helpers;
 
 namespace PersonDataWizard.ViewModels
 {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.Windows;
-using PersonDataWizard.Helpers;
+using UserDataWizard.Helpers;
 
-namespace PersonDataWizard.ViewModels
+namespace UserDataWizard.ViewModels
 {
   class PhoneNumberViewModel : PageViewModel
   {

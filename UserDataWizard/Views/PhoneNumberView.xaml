@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PersonDataWizard.Views.PhoneNumberView"
+﻿<UserControl x:Class="UserDataWizard.Views.PhoneNumberView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <StackPanel Loaded="Page_Loaded">
