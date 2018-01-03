@@ -1,21 +1,25 @@
 ﻿<UserControl x:Class="UserDataWizard.Views.AddressView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
     <StackPanel Loaded="Page_Loaded">
-        <TextBlock Style="{StaticResource PageDescription}" TextWrapping="Wrap">
+        <TextBlock Style="{StaticResource PageDescription}">
             Please enter your address. This field is required. <LineBreak/>
             Only polish addresses are accepted. Validation recognises only polish post codes.
         </TextBlock>
+        
         <Label Style="{StaticResource PageInputLabel}" Content="Address (street with number):"/>
-        <TextBox Style="{StaticResource PageInput}" x:Name="AddressTextBox" Text="{Binding UserInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Style="{StaticResource PageInput}" x:Name="Address" Text="{Binding UserInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        
         <Label Style="{StaticResource PageInputLabel}" Content="Post Code and City:"/>
-        <StackPanel Orientation="Horizontal">
-            <TextBox Style="{StaticResource PageInputPostCode}" x:Name="AddressTextBoxPostCode" Text="{Binding UserInfoPostCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox Style="{StaticResource PageInputCity}" x:Name="AddressTextBoxCity" Text="{Binding UserInfoCity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Style="{StaticResource PageInputPostCode}" x:Name="AddressPostCode" Text="{Binding UserInfoPostCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Style="{StaticResource PageInputCity}" x:Name="AddressCity" Text="{Binding UserInfoCity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+        
         <Label Style="{StaticResource PageInputLabel}" Content="Country:"/>
-        <TextBox Style="{StaticResource PageInput}" x:Name="AddressTextBoxCountry" Text="{Binding UserInfoCountry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <!--                 KeyUp="NumberTextBox_KeyUp"-->
+            <TextBox Style="{StaticResource PageInput}" x:Name="AddressCountry" Text="{Binding UserInfoCountry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        
         <TextBlock Style="{StaticResource PageErrorTextBlock}" Text="{ Binding ErrorDescription }" Visibility="{ Binding IsCorrect }"/>
 
     </StackPanel>

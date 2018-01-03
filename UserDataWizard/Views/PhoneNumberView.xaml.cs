@@ -11,16 +11,15 @@ namespace UserDataWizard.Views
     {
       InitializeComponent();
     }
+
     private void Page_Loaded(object sender, RoutedEventArgs e)
     {
-      PhoneNumberTextbox.Focus();
-      PhoneNumberTextbox.Focusable = true;
-      Keyboard.Focus(PhoneNumberTextbox);
+      PhoneNumber.Focus();
+      PhoneNumber.Focusable = true;
+      Keyboard.Focus(PhoneNumber);
 
       MainWindowViewModel.IsNextEnable = MainWindowViewModel.User.PhoneNumber != null;
-
       MainWindowViewModel.IsFinishPage = true;
-
     }
   }
 }

@@ -6,83 +6,96 @@
         <Setter Property="FontSize" Value="15" />
         <Setter Property="Margin" Value="12 8 12 6" />
         <Setter Property="Padding" Value="0" />
-        
     </Style>
+    
     <Style x:Key="WindowDescription" TargetType="TextBlock">
         <Setter Property="Margin" Value="12 0 12 8" />
         <Setter Property="Padding" Value="0" />
     </Style>
+    
     <Style x:Key="WelcomeText" TargetType="TextBlock">
         <Setter Property="Margin" Value="12 50" />
         <Setter Property="Padding" Value="0" />
     </Style>
+    
     <Style TargetType="Button">
         <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="FontSize" Value="12"/>
-        <Setter Property="Padding" Value="10 0"/>
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Padding" Value="10 0" />
         <Setter Property="Margin" Value="7" />
-        <Setter Property="Width" Value="80"/>
-        <Setter Property="Height" Value="25"/>
+        <Setter Property="Width" Value="80" />
+        <Setter Property="Height" Value="25" />
     </Style>
+    
     <Style x:Key="Pages" TargetType="StackPanel">
         <Setter Property="Margin" Value="20 30 0 0" />
     </Style>
+    
     <Style x:Key="PageDescription" TargetType="TextBlock">
         <Setter Property="Margin" Value="0 0 20 40" />
+        <Setter Property="TextWrapping" Value="Wrap" />
     </Style>
+    
     <Style x:Key="PageInputLabel" TargetType="Label">
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Padding" Value="0 0 0 5" />
     </Style>
+    
     <Style x:Key="PageInput" TargetType="TextBox">
         <Setter Property="Width" Value="250" />
         <Setter Property="Padding" Value="3" />
         <Setter Property="Margin" Value="0 0 0 7" />
         <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="Background" Value="White"/>
+        <Setter Property="Background" Value="White" />
         <Style.Triggers>
             <Trigger Property="IsFocused" Value="True">
-                <Setter Property="Background" Value="WhiteSmoke"/>
+                <Setter Property="Background" Value="WhiteSmoke" />
             </Trigger>
         </Style.Triggers>
     </Style>
+    
     <Style x:Key="PageInputPostCode" TargetType="TextBox">
         <Setter Property="Width" Value="80" />
         <Setter Property="Padding" Value="3" />
         <Setter Property="Margin" Value="0 0 0 7" />
         <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="Background" Value="White"/>
+        <Setter Property="Background" Value="White" />
         <Style.Triggers>
             <Trigger Property="IsFocused" Value="True">
-                <Setter Property="Background" Value="WhiteSmoke"/>
+                <Setter Property="Background" Value="WhiteSmoke" />
             </Trigger>
         </Style.Triggers>
     </Style>
+    
     <Style x:Key="PageInputCity" TargetType="TextBox">
         <Setter Property="Width" Value="165" />
         <Setter Property="Margin" Value="5 0 0 7" />
         <Setter Property="Padding" Value="3" />
         <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="Background" Value="White"/>
+        <Setter Property="Background" Value="White" />
         <Style.Triggers>
             <Trigger Property="IsFocused" Value="True">
-                <Setter Property="Background" Value="WhiteSmoke"/>
+                <Setter Property="Background" Value="WhiteSmoke" />
             </Trigger>
         </Style.Triggers>
     </Style>
+    
     <Style x:Key="PageErrorTextBlock" TargetType="TextBlock">
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Padding" Value="0 0 0 5" />
         <Setter Property="FontSize" Value="10" />
         <Setter Property="Foreground" Value="Red" />
     </Style>
+    
     <Style x:Key="PageSummaryLabel" TargetType="Label">
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        <Setter Property="HorizontalContentAlignment" Value="Right" />
         <Setter Property="Padding" Value="0 0 0 5" />
     </Style>
+    
     <Style x:Key="PageSummaryTextBlock" TargetType="TextBlock">
-        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="Padding" Value="10 0 0 5" />
     </Style>
+    
 </ResourceDictionary>

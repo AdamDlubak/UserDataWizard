@@ -11,15 +11,15 @@ namespace UserDataWizard.Views
     {
       InitializeComponent();
     }
+
     private void Page_Loaded(object sender, RoutedEventArgs e)
     {
-      AddressTextBox.Focus();
-      AddressTextBox.Focusable = true;
-      Keyboard.Focus(AddressTextBox);
+      Address.Focus();
+      Address.Focusable = true;
+      Keyboard.Focus(Address);
 
       MainWindowViewModel.IsNextEnable = AddressViewModel._isCorrect;
       MainWindowViewModel.IsFinishPage = false;
-
     }
   }
 }

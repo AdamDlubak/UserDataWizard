@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using PersonDataWizard.Models;
-using PersonDataWizard.ViewModels;
 using UserDataWizard.Helpers;
 
 namespace UserDataWizard.ViewModels

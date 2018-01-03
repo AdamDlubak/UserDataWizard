@@ -11,7 +11,6 @@ namespace UserDataWizard.Helpers
     // Predicate to determine if the command is valid for execution
     private Predicate<object> canExecutePredicate;
 
-
     // Initializes a new instance of the DelegateCommand class.
     // The command will always be valid for execution.
     public RelayCommand(Action<object> execute)
@@ -38,7 +37,6 @@ namespace UserDataWizard.Helpers
     {
       return canExecutePredicate == null ? true : canExecutePredicate(parameter);
     }
-
 
     // Executes the delegate backing this DelegateCommand
     public void Execute(object parameter)

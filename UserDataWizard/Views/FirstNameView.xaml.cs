@@ -11,17 +11,15 @@ namespace UserDataWizard.Views
     {
       InitializeComponent();
     }
+
     private void Page_Loaded(object sender, RoutedEventArgs e)
     {
-      FirstNameTextBox.Focus();
-      FirstNameTextBox.Focusable = true;
-      Keyboard.Focus(FirstNameTextBox);
+      FirstName.Focus();
+      FirstName.Focusable = true;
+      Keyboard.Focus(FirstName);
 
       MainWindowViewModel.IsNextEnable = MainWindowViewModel.User.FirstName != null;
       MainWindowViewModel.IsPreviousEnable = true;
-
     }
-
-
   }
 }

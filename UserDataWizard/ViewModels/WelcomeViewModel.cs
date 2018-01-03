@@ -1,6 +1,6 @@
 ﻿using UserDataWizard.Helpers;
 
-namespace PersonDataWizard.ViewModels
+namespace UserDataWizard.ViewModels
 {
     class WelcomeViewModel : PageViewModel
   {

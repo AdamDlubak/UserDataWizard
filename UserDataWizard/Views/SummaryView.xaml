@@ -1,7 +1,7 @@
-﻿<UserControl x:Class="PersonDataWizard.Views.SummaryView"
+﻿<UserControl x:Class="UserDataWizard.Views.SummaryView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StackPanel Loaded="Page_Loaded">
+    <StackPanel>
         <Label Style="{StaticResource PageInputLabel}" Content="It's time for a summary. This is what we know about You:" />
 
         <Grid>
@@ -9,6 +9,7 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="15" />
                 <RowDefinition Height="Auto" />
@@ -20,21 +21,21 @@
             </Grid.RowDefinitions>
 
             <Label Style="{StaticResource PageSummaryLabel}" Content="First Name:" Grid.Row="1" Grid.Column="0" />
-            <TextBlock Style="{StaticResource PageSummaryTextBlock}" x:Name="NameTextBlock" Text="{Binding FirstName, Mode=OneWay}" Grid.Row="1" Grid.Column="1" />
+                <TextBlock Style="{StaticResource PageSummaryTextBlock}" x:Name="FirstName" Text="{Binding FirstName, Mode=OneWay}" Grid.Row="1" Grid.Column="1" />
 
             <Label Style="{StaticResource PageSummaryLabel}" Content="Last Name:" Grid.Row="2" Grid.Column="0" />
-            <TextBlock Style="{StaticResource PageSummaryTextBlock}" x:Name="SurnameTextBlock" Text="{Binding LastName, Mode=OneWay}" Grid.Row="2" Grid.Column="1" />
+                <TextBlock Style="{StaticResource PageSummaryTextBlock}" x:Name="LastName" Text="{Binding LastName, Mode=OneWay}" Grid.Row="2" Grid.Column="1" />
 
             <Label Style="{StaticResource PageSummaryLabel}" Content="Address:" Grid.Row="3" Grid.Column="0" />
-            <TextBlock Style="{StaticResource PageSummaryTextBlock}" x:Name="AdressTextBlock" Text="{Binding Address, Mode=OneWay}" Grid.Row="3" Grid.Column="1" />
-            <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" >
-                <TextBlock Style="{StaticResource PageSummaryTextBlock}" x:Name="AdressTextBlockPostCode" Text="{Binding AddressPostCode, Mode=OneWay}" />
-                <TextBlock Style="{StaticResource PageSummaryTextBlock}" x:Name="AdressTextBlockCity" Text="{Binding AddressCity, Mode=OneWay}"/>
-            </StackPanel>
-            <TextBlock Style="{StaticResource PageSummaryTextBlock}" x:Name="AdressTextBlockCountry" Text="{Binding AddressCountry, Mode=OneWay}" Grid.Row="5" Grid.Column="1" />
+                <TextBlock Style="{StaticResource PageSummaryTextBlock}" x:Name="AdressStreet" Text="{Binding AddressStreet, Mode=OneWay}" Grid.Row="3" Grid.Column="1" />
+                <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" >
+                    <TextBlock Style="{StaticResource PageSummaryTextBlock}" x:Name="AdressPostCode" Text="{Binding AddressPostCode, Mode=OneWay}" />
+                    <TextBlock Style="{StaticResource PageSummaryTextBlock}" x:Name="AdressCity" Text="{Binding AddressCity, Mode=OneWay}"/>
+                </StackPanel>
+                <TextBlock Style="{StaticResource PageSummaryTextBlock}" x:Name="AdressCountry" Text="{Binding AddressCountry, Mode=OneWay}" Grid.Row="5" Grid.Column="1" />
 
             <Label Style="{StaticResource PageSummaryLabel}" Content="Phone Number:" Grid.Row="6" Grid.Column="0" />
-            <TextBlock Style="{StaticResource PageSummaryTextBlock}" x:Name="PhoneNumberTextBlock" Text="{Binding PhoneNumber, Mode=OneWay}" Grid.Row="6" Grid.Column="1" />
+                <TextBlock Style="{StaticResource PageSummaryTextBlock}" x:Name="PhoneNumber" Text="{Binding PhoneNumber, Mode=OneWay}" Grid.Row="6" Grid.Column="1" />
 
         </Grid>
     </StackPanel>

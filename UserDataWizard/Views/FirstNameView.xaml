@@ -2,14 +2,13 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-
     <StackPanel Loaded="Page_Loaded">
         <TextBlock  Style="{StaticResource PageDescription}">
             Please enter your first name. This field is required.
             </TextBlock>
         <Label Style="{StaticResource PageInputLabel}" Content="First Name:"/>
-        <TextBox Style="{StaticResource PageInput}" x:Name="FirstNameTextBox" Text="{Binding UserInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Style="{StaticResource PageInput}" x:Name="FirstName" Text="{Binding UserInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock Style="{StaticResource PageErrorTextBlock}" Text="{ Binding ErrorDescription }" Visibility="{ Binding IsCorrect }"/>
-
     </StackPanel>
+    
 </UserControl>

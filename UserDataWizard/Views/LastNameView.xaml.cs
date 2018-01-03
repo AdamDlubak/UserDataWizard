@@ -11,11 +11,12 @@ namespace UserDataWizard.Views
     {
       InitializeComponent();
     }
+
     private void Page_Loaded(object sender, RoutedEventArgs e)
     {
-      LastNameTextBox.Focus();
-      LastNameTextBox.Focusable = true;
-      Keyboard.Focus(LastNameTextBox);
+      LastName.Focus();
+      LastName.Focusable = true;
+      Keyboard.Focus(LastName);
 
       MainWindowViewModel.IsNextEnable = MainWindowViewModel.User.LastName != null;
     }

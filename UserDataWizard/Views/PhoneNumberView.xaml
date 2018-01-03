@@ -6,7 +6,7 @@
             Please enter your phone number. This field is required.
         </TextBlock>
         <Label Style="{StaticResource PageInputLabel}" Content="Your Phone Number:"/>
-        <TextBox Style="{StaticResource PageInput}" x:Name="PhoneNumberTextbox" Text="{Binding UserInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Style="{StaticResource PageInput}" x:Name="PhoneNumber" Text="{Binding UserInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock Style="{StaticResource PageErrorTextBlock}" Text="{ Binding ErrorDescription }" Visibility="{ Binding IsCorrect }"/>
 
     </StackPanel>
