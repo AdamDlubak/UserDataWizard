@@ -60,15 +60,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="RelayCommand.cs" />
+    <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="ViewModel\AddressViewModel.cs" />
-    <Compile Include="ViewModel\PageViewModel.cs" />
+    <Compile Include="Helpers\PageViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\FirstNameViewModel.cs" />
     <Compile Include="ViewModel\PhoneNumberViewModel.cs" />
     <Compile Include="ViewModel\SummaryViewModel.cs" />
     <Compile Include="ViewModel\LastNameViewModel.cs" />
-    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="Helpers\ViewModelBase.cs" />
     <Compile Include="ViewModel\WelcomeViewModel.cs" />
     <Compile Include="View\AddressView.xaml.cs">
       <DependentUpon>AddressView.xaml</DependentUpon>
@@ -88,7 +88,7 @@
     <Compile Include="View\WelcomeView.xaml.cs">
       <DependentUpon>WelcomeView.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -96,11 +96,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Style.xaml">
+    <Page Include="Styles\Style.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -161,7 +161,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="_img\bg-photo.jpg" />
+    <Resource Include="Images\bg-photo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

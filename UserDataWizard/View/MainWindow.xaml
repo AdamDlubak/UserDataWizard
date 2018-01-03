@@ -1,4 +1,4 @@
-﻿<Window x:Class="PersonDataWizard.MainWindow"
+﻿<Window x:Class="PersonDataWizard.View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:ViewModel="clr-namespace:PersonDataWizard.ViewModel"
@@ -31,7 +31,7 @@
     </Window.Resources>
 
     <DockPanel>
-        <Image Source="/_img/bg-photo.jpg" DockPanel.Dock="Left" />
+        <Image Source="/Images/bg-photo.jpg" DockPanel.Dock="Left" />
 
         <StackPanel DockPanel.Dock="Top">
             <Label Style="{StaticResource WindowTitle}" Content="Welcome in our application!" />

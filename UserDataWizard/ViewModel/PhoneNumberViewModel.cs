@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.Windows;
+using PersonDataWizard.Helpers;
 
 namespace PersonDataWizard.ViewModel
 {

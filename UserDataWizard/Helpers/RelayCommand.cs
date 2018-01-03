@@ -1,15 +1,8 @@
-﻿  using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using System.Windows.Input;
 
-namespace PersonDataWizard
+namespace PersonDataWizard.Helpers
 {
-  using System;
-  using System.Windows.Input;
-
   public class RelayCommand : ICommand
   {
   

@@ -1,6 +1,6 @@
-﻿using System.Windows;
+﻿using PersonDataWizard.ViewModel;
 
-namespace PersonDataWizard.ViewModel
+namespace PersonDataWizard.Helpers
 {
   public abstract class PageViewModel : ViewModelBase
   {

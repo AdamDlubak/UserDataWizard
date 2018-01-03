@@ -1,4 +1,6 @@
-﻿namespace PersonDataWizard.ViewModel
+﻿using PersonDataWizard.Helpers;
+
+namespace PersonDataWizard.ViewModel
 {
     class WelcomeViewModel : PageViewModel
   {

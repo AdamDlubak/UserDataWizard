@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace PersonDataWizard.ViewModel
+namespace PersonDataWizard.Helpers
 {
   public abstract class ViewModelBase : INotifyPropertyChanged
   {
