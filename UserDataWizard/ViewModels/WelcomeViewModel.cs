@@ -1,13 +1,15 @@
-﻿using UserDataWizard.Helpers;
+﻿using System;
+using UserDataWizard.Helpers;
 
 namespace UserDataWizard.ViewModels
 {
-    class WelcomeViewModel : PageViewModel
+  class WelcomeViewModel : PageViewModel
   {
     public override string UserInfo { get; set; }
-    public override bool ValidateField()
+
+    protected override bool ValidateField(int fieldType = 0)
     {
-      throw new System.NotImplementedException();
+      throw new NotImplementedException();
     }
   }
 }

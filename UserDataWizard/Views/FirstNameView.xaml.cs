@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using UserDataWizard.Helpers;
 using UserDataWizard.ViewModels;
 
 namespace UserDataWizard.Views
@@ -18,7 +19,7 @@ namespace UserDataWizard.Views
       FirstName.Focusable = true;
       Keyboard.Focus(FirstName);
 
-      MainWindowViewModel.IsNextEnable = MainWindowViewModel.User.FirstName != null;
+      MainWindowViewModel.IsNextEnable = MainWindowViewModel.PageValidation.FirstName;
       MainWindowViewModel.IsPreviousEnable = true;
     }
   }

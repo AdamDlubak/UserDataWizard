@@ -18,7 +18,7 @@ namespace UserDataWizard.Views
       Address.Focusable = true;
       Keyboard.Focus(Address);
 
-      MainWindowViewModel.IsNextEnable = AddressViewModel._isCorrect;
+      MainWindowViewModel.IsNextEnable = MainWindowViewModel.PageValidation.Address;
       MainWindowViewModel.IsFinishPage = false;
     }
   }

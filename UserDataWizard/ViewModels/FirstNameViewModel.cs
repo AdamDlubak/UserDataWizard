@@ -11,13 +11,13 @@ namespace UserDataWizard.ViewModels
       set
       {
         User.FirstName = value;
-        CheckCorrectionAndUpdate();
+        PageValidation.FirstName = CheckCorrectionAndUpdate();
       }
     }
 
-    public override bool ValidateField(int fieldType = 0)
+    protected override bool ValidateField(int fieldType = 0)
     {
-      return LengthValidation(User.FirstName, 2, 50);
+      return LengthValidation(User.FirstName, 2, 50, "First name");
     }
   }
 }

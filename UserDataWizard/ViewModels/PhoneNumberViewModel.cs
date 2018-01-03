@@ -12,11 +12,11 @@ namespace UserDataWizard.ViewModels
       set
       {
         User.PhoneNumber = value;
-        CheckCorrectionAndUpdate();
+        PageValidation.PhoneNumber = CheckCorrectionAndUpdate();
       }
     }
 
-    public override bool ValidateField(int fieldType = 0)
+    protected override bool ValidateField(int fieldType = 0)
     {
       var phoneNumberPattern = new Regex(@"^(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)?");
       const string errorEmptyDescription = "*This field cannot be empty";

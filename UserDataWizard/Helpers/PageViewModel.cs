@@ -6,12 +6,10 @@ namespace UserDataWizard.Helpers
 {
   public abstract class PageViewModel : ViewModelBase
   {
+    private bool _isCorrect;
     public abstract string UserInfo { get; set; }
     public string ErrorDescription { get; set; }
-
-    public abstract bool ValidateField(int fieldType = 0);
-    private bool _isCorrect;
-
+    protected abstract bool ValidateField(int fieldType = 0);
 
     public Visibility IsCorrect => _isCorrect ? Visibility.Collapsed : Visibility.Visible;
 
@@ -32,11 +30,11 @@ namespace UserDataWizard.Helpers
       OnPropertyChanged("ShowError");
     }
 
-    public virtual bool LengthValidation(string field, int minCharacters, int maxCharacters)
+    public virtual bool LengthValidation(string field, int minCharacters, int maxCharacters, string fieldName)
     {
       if (field == string.Empty)
       {
-        OnChangeError("*This field cannot be empty!");
+        OnChangeError("*" + fieldName + " cannot be empty!");
         return false;
       }
       if (field.Length > minCharacters && field.Length <= maxCharacters)
@@ -45,13 +43,18 @@ namespace UserDataWizard.Helpers
         return true;
       }
       OnChangeError(field.Length > maxCharacters
-        ? "*This field is too long! (max. " + maxCharacters + " charakters)"
-        : "*This field is too short! (min. " + minCharacters + 1 + " charakters)");
+        ? "*" + fieldName + " is too long! (max. " + maxCharacters + " characters)"
+        : "*" + fieldName + " is too short! (min. " + minCharacters + 1 + " characters)");
       return false;
     }
 
-    public virtual bool RegexValidation(string field, Regex regex, string errorDescription)
+    public virtual bool RegexValidation(string field, Regex regex, string errorEmptyDescription, string errorDescription)
     {
+      if (field == null)
+      {
+        OnChangeError(errorEmptyDescription);
+        return false;
+      }
       if (regex.IsMatch(field))
       {
         OnChangeError("");

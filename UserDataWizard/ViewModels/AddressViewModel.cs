@@ -11,14 +11,13 @@ namespace UserDataWizard.ViewModels
     private bool _cityCorrection;
     private bool _addressCorrection;
 
-
     public override string UserInfo
     {
       get => User.Street;
       set
       {
         User.Street = value;
-        CheckCorrectionAndUpdate(1, "UserInfoCity");
+        PageValidation.Address = CheckCorrectionAndUpdate(1, "UserInfoCity");
       }
     }
 
@@ -28,7 +27,7 @@ namespace UserDataWizard.ViewModels
       set
       {
         User.PostCode = value;
-        CheckCorrectionAndUpdate(2, "UserInfoPostCode");
+        PageValidation.Address = CheckCorrectionAndUpdate(2, "UserInfoPostCode");
       }
     }
 
@@ -38,7 +37,7 @@ namespace UserDataWizard.ViewModels
       set
       {
         User.City = value;
-        CheckCorrectionAndUpdate(3, "UserInfoCity");
+        PageValidation.Address = CheckCorrectionAndUpdate(3, "UserInfoCity");
       }
     }
 
@@ -48,22 +47,46 @@ namespace UserDataWizard.ViewModels
       set
       {
         User.Country = value;
-        CheckCorrectionAndUpdate(4, "UserInfoCountry");
+        PageValidation.Address = CheckCorrectionAndUpdate(4, "UserInfoCountry");
       }
     }
 
 
-    private bool CheckCityCorrection()
+    protected override bool ValidateField(int fieldType = 0)
     {
-      return LengthValidation(User.City, 2, 100);
+      switch (fieldType)
+      {
+        case 1:
+          _addressCorrection = CheckAddressStreet();
+          break;
+        case 2:
+          _postCodeCorrection = CheckPostCode();
+          break;
+        case 3:
+          _cityCorrection = CheckCity();
+          break;
+        case 4:
+          _countryCorrection = CheckCountry();
+          break;
+        default:
+          throw new System.ArgumentException("Wrong function parameter (fieldType");
+      }
+
+      return _countryCorrection && _postCodeCorrection && _cityCorrection && _addressCorrection;
     }
 
-    private bool CheckCountryCorrection()
+
+    private bool CheckCity()
     {
-      return LengthValidation(User.Country, 2, 100);
+      return LengthValidation(User.City, 2, 100, "City");
     }
 
-    private bool CheckPostCodeCorrection()
+    private bool CheckCountry()
+    {
+      return LengthValidation(User.Country, 2, 100, "Country");
+    }
+
+    private bool CheckPostCode()
     {
       var postCodePattern = new Regex(@"^[0-9]{2}-[0-9]{3}$");
       const string errorEmptyDescription = "*Post Code field cannot be empty!";
@@ -72,38 +95,13 @@ namespace UserDataWizard.ViewModels
       return RegexValidation(User.PostCode, postCodePattern, errorEmptyDescription, errorDescription);
     }
 
-    private bool CheckAddressStreetCorrection()
+    private bool CheckAddressStreet()
     {
       var addressPattern = new Regex(@"^[\p{L}]{2,} [0-9]{1,}\s?(\/\s?[0-9]{1,})?$");
       const string errorEmptyDescription = "*Address Street field cannot be empty!";
       const string errorDescription = "*Invalid Street Address field! \n(Correct example: Wschodnia 1/12)";
 
       return RegexValidation(User.Street, addressPattern, errorEmptyDescription, errorDescription);
-    }
-
-
-    public override bool ValidateField(int fieldType = 0)
-    {
-      switch (fieldType)
-      {
-        case 1:
-          _addressCorrection = CheckAddressStreetCorrection();
-          break;
-        case 2:
-          _postCodeCorrection = CheckPostCodeCorrection();
-          break;
-        case 3:
-          _cityCorrection = CheckCityCorrection();
-          break;
-        case 4:
-          _countryCorrection = CheckCountryCorrection();
-          break;
-        default:
-          // Throw Exception
-          break;
-      }
-
-      return _countryCorrection && _postCodeCorrection && _cityCorrection && _addressCorrection;
     }
   }
 }

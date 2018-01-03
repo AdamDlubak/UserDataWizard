@@ -18,10 +18,10 @@ namespace UserDataWizard.Helpers
     }
 
     public static event EventHandler<PropertyChangedEventArgs> StaticPropertyChanged;
+
     public static void RaiseStaticPropertyChanged(string propName)
     {
       StaticPropertyChanged?.Invoke(null, new PropertyChangedEventArgs(propName));
     }
-
   }
 }

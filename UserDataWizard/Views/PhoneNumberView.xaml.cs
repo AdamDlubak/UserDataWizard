@@ -18,7 +18,7 @@ namespace UserDataWizard.Views
       PhoneNumber.Focusable = true;
       Keyboard.Focus(PhoneNumber);
 
-      MainWindowViewModel.IsNextEnable = MainWindowViewModel.User.PhoneNumber != null;
+      MainWindowViewModel.IsNextEnable = MainWindowViewModel.PageValidation.PhoneNumber;
       MainWindowViewModel.IsFinishPage = true;
     }
   }

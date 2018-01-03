@@ -1,21 +1,28 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
 using PersonDataWizard.Models;
 using UserDataWizard.Helpers;
+using UserDataWizard.Models;
 
 namespace UserDataWizard.ViewModels
 {
   public class MainWindowViewModel : ViewModelBase
   {
-    private PageViewModel _currentViewModel;
+    public static User User;
+    public static PageValidation PageValidation;
 
+    private PageViewModel _currentViewModel;
     private static bool _isNextEnable;
     private static bool _isCancelEnable;
     private static bool _isPreviousEnable;
+    private static bool _isFinishPage;
 
-    public String NextButtonContent { get; set; }
+    public ICommand PreviousCommand { get; }
+    public ICommand NextCommand { get; }
+    public ICommand CancelCommand { get; }
 
+    public string NextButtonContent { get; set; }
     public static bool IsNextEnable
     {
       get => _isNextEnable;
@@ -46,9 +53,6 @@ namespace UserDataWizard.ViewModels
         RaiseStaticPropertyChanged("PreviousCommand");
       }
     }
-
-    private static bool _isFinishPage;
-
     public static bool IsFinishPage
     {
       get => _isFinishPage;
@@ -60,25 +64,20 @@ namespace UserDataWizard.ViewModels
       }
     }
 
-    public static User User;
+
     public PageViewModel CurrentViewModel
     {
       get => _currentViewModel;
       set
       {
         _currentViewModel = value;
-        this.OnPropertyChanged("CurrentViewModel");
+        OnPropertyChanged("CurrentViewModel");
       }
     }
 
-    private readonly ObservableCollection<PageViewModel> settings;
-    public PageViewModel pageViewModel;
-    public ObservableCollection<PageViewModel> Settings
-    {
-      get { return this.settings; }
-    }
+    public ObservableCollection<PageViewModel> Settings { get; }
 
-    public bool IsCorrect(object state)
+    public bool IsNextCorrect(object state)
     {
       return IsNextEnable;
     }
@@ -90,15 +89,13 @@ namespace UserDataWizard.ViewModels
     {
       return IsCancelEnable;
     }
-    public ICommand PreviousCommand { get; private set; }
-    public ICommand NextCommand { get; private set; }
-    public ICommand CancelCommand { get; private set; }
+
     public MainWindowViewModel()
     {
-      this.PreviousCommand = new RelayCommand(o => PreviousPage(), IsPreviousCorrect);
-      this.NextCommand = new RelayCommand(o => NextPage(), IsCorrect);
-      this.CancelCommand = new RelayCommand(o => CancelApplication(), IsCancelPossible);
-      settings = new ObservableCollection<PageViewModel>
+      PreviousCommand = new RelayCommand(o => PreviousPage(), IsPreviousCorrect);
+      NextCommand = new RelayCommand(o => NextPage(), IsNextCorrect);
+      CancelCommand = new RelayCommand(o => CancelApplication(), IsCancelPossible);
+      Settings = new ObservableCollection<PageViewModel>
       {
         new WelcomeViewModel(),
         new FirstNameViewModel(),
@@ -107,49 +104,48 @@ namespace UserDataWizard.ViewModels
         new PhoneNumberViewModel(),
         new SummaryViewModel()
       };
-      CurrentViewModel = settings[0];
+      CurrentViewModel = Settings[0];
       IsPreviousEnable = true;
       IsNextEnable = true;
       IsCancelEnable = true;
       NextButtonContent = "Next";
-
     }
 
     private void PreviousPage()
     {
       if (IsFinishPage && NextButtonContent == "Finish")
       {
-        NextButtonContent = "Next";
         IsCancelEnable = true;
+        NextButtonContent = "Next";
         OnPropertyChanged("NextButtonContent");
       }
       OnPropertyChanged("IsPreviousEnable");
 
-      CurrentViewModel = PreviousOf(settings, CurrentViewModel);
-
+      CurrentViewModel = PreviousOf(Settings, CurrentViewModel);
     }
     private void NextPage()
     {
       if (IsFinishPage && NextButtonContent == "Finish")
       {
-        System.Windows.Application.Current.Shutdown();
+        Application.Current.Shutdown();
       }
-      if (IsFinishPage)
+      else if (IsFinishPage)
       {
         NextButtonContent = "Finish";
         OnPropertyChanged("NextButtonContent");
       }
-      IsPreviousEnable = true;
-      CurrentViewModel = NextOf(settings, CurrentViewModel);
+      if(!IsPreviousEnable) IsPreviousEnable = true;
+      CurrentViewModel = NextOf(Settings, CurrentViewModel);
     }
     private void CancelApplication()
     {
-      System.Windows.Application.Current.Shutdown();
+      Application.Current.Shutdown();
     }
 
     public static T NextOf<T>(ObservableCollection<T> list, T item)
     {
       if (User == null) User = new User();
+      if (PageValidation == null) PageValidation = new PageValidation();
       return list[(list.IndexOf(item) + 1) == list.Count ? 0 : (list.IndexOf(item) + 1)];
     }
     public static T PreviousOf<T>(ObservableCollection<T> list, T item)
